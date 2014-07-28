@@ -1356,3 +1356,11 @@ width: 11px;}
 #redis-widget .widget-content div {
 	margin-bottom:5px;
 }
+
+/*------------------------------------------------------------------
+	tabs overrides for balogs
+*/
+
+#balogs-widget #tabs {
+    margin-bottom:0px;
+}

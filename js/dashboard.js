@@ -251,6 +251,58 @@ dashboard.getLastLog = function () {
     $("select[name='lastlog_dashboard_length']").val("5");
 }
 
+dashboard.getBaLogs = function () {
+    moduleData("balogs", function (data) {
+		destroy_dataTable("balogs_info_dashboard");
+		destroy_dataTable("balogs_debug_dashboard");
+		destroy_dataTable("balogs_cron_dashboard");
+
+        console.log(data);
+        $("#balogs_info_dashboard").dataTable({
+            aaData: data[0],
+            aoColumns: [
+                { sTitle: "Time" },
+                { sTitle: "File:line" },
+                { sTitle: "Event" },
+            ],
+            iDisplayLength: 10,
+            bPaginate: false,
+            bFilter: false,
+            bAutoWidth: false,
+            bInfo: false
+        }).fadeIn();
+        
+        $("#balogs_debug_dashboard").dataTable({
+            aaData: data[1],
+            aoColumns: [
+                { sTitle: "Time" },
+                { sTitle: "File:line" },
+                { sTitle: "Event" },
+            ],
+            iDisplayLength: 10,
+            bPaginate: false,
+            bFilter: false,
+            bAutoWidth: false,
+            bInfo: false
+        }).fadeIn();
+        
+        $("#balogs_cron_dashboard").dataTable({
+            aaData: data[2],
+            aoColumns: [
+                { sTitle: "Time" },
+                { sTitle: "File:line" },
+                { sTitle: "Event" },
+            ],
+            iDisplayLength: 10,
+            bPaginate: false,
+            bFilter: false,
+            bAutoWidth: false,
+            bInfo: false
+        }).fadeIn();
+    });
+    //$("select[name='balogs_dashboard_length']").val("5");
+}
+
 dashboard.getRam = function () {
     moduleData("mem", function (data) {
         var ram_total = data[1];
@@ -318,7 +370,7 @@ dashboard.getDf = function () {
                 { sTitle: "Use%", sType: "percent" },
                 { sTitle: "Mounted" }
             ],
-	    iDisplayLength: 5,
+            iDisplayLength: 5,
             bPaginate: true,
             bFilter: false,
             bAutoWidth: true,
@@ -563,7 +615,7 @@ dashboard.getSwaps = function () {
                 { sTitle: "Used", sType: "file-size" },
                 { sTitle: "Priority"}
             ],
-	    iDisplayLength: 5,
+            iDisplayLength: 5,
             bPaginate: true,
             bFilter: false,
             bAutoWidth: true,
@@ -577,25 +629,25 @@ dashboard.getSwaps = function () {
 
 dashboard.redis = function () {
     moduleData("redis_status", function (data) {
-		
+
         if (data.length == 0)
-		{
-			$('#redis-installed').addClass('hide');
-			$('#redis-not').removeClass('hide');
-		}
-		else
-		{
-			$('#version-info').html(data['redis_version']);
-			$('#cc-info').html(data['connected_clients']);
-			$('#cs-info').html(data['connected_slaves']);
-			$('#memory-info').html(data['used_memory_human']);
-			$('#totc-info').html(data['total_connections_received']);
-			$('#totcp-info').html(data['total_commands_processed']);
-			
-			$('#redis-installed').removeClass('hide');
-			$('#redis-not').addClass('hide');
-		}
-	});
+        {
+            $('#redis-installed').addClass('hide');
+            $('#redis-not').removeClass('hide');
+        }
+        else
+        {
+            $('#version-info').html(data['redis_version']);
+            $('#cc-info').html(data['connected_clients']);
+            $('#cs-info').html(data['connected_slaves']);
+            $('#memory-info').html(data['used_memory_human']);
+            $('#totc-info').html(data['total_connections_received']);
+            $('#totcp-info').html(data['total_commands_processed']);
+
+            $('#redis-installed').removeClass('hide');
+            $('#redis-not').addClass('hide');
+        }
+    });
 }
 
 /**
@@ -622,6 +674,7 @@ dashboard.fnMap = {
     users: dashboard.getUsers,
     online: dashboard.getOnline,
     lastlog: dashboard.getLastLog,
+    balogs: dashboard.getBaLogs,
     whereis: dashboard.getWhereIs,
     ip: dashboard.getIp,
     ispeed: dashboard.getIspeed,
@@ -633,5 +686,5 @@ dashboard.fnMap = {
     ping: dashboard.getPing,
     swap: dashboard.getSwaps,
     arp: dashboard.getArp,
-	redis: dashboard.redis,
+    redis: dashboard.redis,
 };

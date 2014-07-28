@@ -376,6 +376,40 @@
                             </div><!-- /span4 -->
 
                         <div class="span12">
+                                <div id="balogs-widget" class="widget widget-table action-table">
+                                    <div class="widget-header">
+                                        <i class="icon-group"></i>
+                                        <h3>
+                                            Bestat logs
+                                        </h3>
+                                        <div id="refresh-balogs" class="btn icon-refresh js-refresh-info"></div>
+                                    </div><!-- /widget-header -->
+                                    <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+                                      <li class="active"><a href="#info" data-toggle="tab">Info</a></li>
+                                      <li><a href="#debug" data-toggle="tab">Debug</a></li>
+                                      <li><a href="#cron" data-toggle="tab">Cron</a></li>
+                                    </ul>
+                                    <div id="my-tab-content" class="tab-content">
+                                      <div class="tab-pane active" id="info">
+                                        <div class="widget-content">
+                                            <table id="balogs_info_dashboard" class="table table-hover table-bordered table-condensed"></table>
+                                        </div><!-- /widget-content -->
+                                      </div><!-- /tab-info -->
+                                      <div class="tab-pane" id="debug">
+                                        <div class="widget-content">
+                                            <table id="balogs_debug_dashboard" class="table table-hover table-bordered table-condensed"></table>
+                                        </div><!-- /widget-content -->
+                                      </div><!-- /tab-debug -->
+                                      <div class="tab-pane" id="cron">
+                                        <div class="widget-content">
+                                            <table id="balogs_cron_dashboard" class="table table-hover table-bordered table-condensed"></table>
+                                        </div><!-- /widget-content -->
+                                      </div><!-- /tab-cron -->
+                                    </div><!-- /tab-content -->
+                                </div><!-- /widget -->
+                            </div><!-- /span4 -->
+
+                        <div class="span12">
                                 <div id="process-widget" class="widget widget-table">
                                     <div class="widget-header">
                                         <i class="icon-dashboard"></i>
@@ -475,48 +509,48 @@
                             </div>
                         </div> <!-- /span6 -->
 
-						<div class="span3">
-							<div id="redis-widget" class="widget widget-table action-table">
-								<div class="widget-header">
-									<i class="icon-list"></i>
-									<h3>
-										Redis Status
-									</h3>
-									<div id="refresh-redis" class="btn icon-refresh js-refresh-info"></div>
-								</div><!-- /widget-header -->
-								<div class="widget-content">
-									<div id="redis-installed" class="hide">
-										<div class="general-info-item">
-											<span class="general-title">Version</span>
-											<span class="general-data" id="version-info"></span>
-										</div>
-										<div class="general-info-item">
-											<span class="general-title">Connected Clients</span>
-											<span class="general-data" id="cc-info"></span>
-										</div>
-										<div class="general-info-item">
-											<span class="general-title">Connected Slaves</span>
-											<span class="general-data" id="cs-info"></span>
-										</div>
-										<div class="general-info-item">
-											<span class="general-title">Used Memory</span>
-											<span class="general-data" id="memory-info"></span>
-										</div>
-										<div class="general-info-item">
-											<span class="general-title">Total connections recieved</span>
-											<span class="general-data" id="totc-info"></span>
-										</div>
-										<div class="general-info-item">
-											<span class="general-title">Total commands processed</span>
-											<span class="general-data" id="totcp-info"></span>
-										</div>
+                        <div class="span3">
+                            <div id="redis-widget" class="widget widget-table action-table">
+                                <div class="widget-header">
+                                    <i class="icon-list"></i>
+                                    <h3>
+                                        Redis Status
+                                    </h3>
+                                    <div id="refresh-redis" class="btn icon-refresh js-refresh-info"></div>
+                                </div><!-- /widget-header -->
+                                <div class="widget-content">
+                                    <div id="redis-installed" class="hide">
+                                        <div class="general-info-item">
+                                            <span class="general-title">Version</span>
+                                            <span class="general-data" id="version-info"></span>
+                                        </div>
+                                        <div class="general-info-item">
+                                            <span class="general-title">Connected Clients</span>
+                                            <span class="general-data" id="cc-info"></span>
+                                        </div>
+                                        <div class="general-info-item">
+                                            <span class="general-title">Connected Slaves</span>
+                                            <span class="general-data" id="cs-info"></span>
+                                        </div>
+                                        <div class="general-info-item">
+                                            <span class="general-title">Used Memory</span>
+                                            <span class="general-data" id="memory-info"></span>
+                                        </div>
+                                        <div class="general-info-item">
+                                            <span class="general-title">Total connections recieved</span>
+                                            <span class="general-data" id="totc-info"></span>
+                                        </div>
+                                        <div class="general-info-item">
+                                            <span class="general-title">Total commands processed</span>
+                                            <span class="general-data" id="totcp-info"></span>
+                                        </div>
 
-									</div>
-									<div id="redis-not" class="hide">
-										Redis not installed
-									</div>
-								</div><!-- /widget-content -->
-							</div><!-- /widget -->
+                                    </div>
+                                    <div id="redis-not" class="hide">
+                                        Redis not installed
+                                    </div>
+                                </div><!-- /widget-content -->
+                            </div><!-- /widget -->
                         </div><!-- /span3 -->
 
                     </div><!-- #/widgets -->
