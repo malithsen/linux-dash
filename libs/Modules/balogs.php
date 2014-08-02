@@ -21,19 +21,29 @@
             );
 
 
+            $inforesult = array();
+            $debugresult = array();
+            $cronresult = array();
+
             for ($i = 1; $i < count($infologs); ++$i) {
-                $temp = explode("-", $infologs[$i]);
-                $inforesult[$i-1] = array("{$temp[0]}-{$temp[1]}-{$temp[2]}", "{$temp[5]}", "{$temp[6]}");
+                if ($infologs[$i] != "--------------------"){
+                    $temp = explode("-", $infologs[$i]);
+                    array_push($inforesult, array("{$temp[0]}-{$temp[1]}-{$temp[2]}", "{$temp[5]}", "{$temp[6]}"));
+                }
             }
 
             for ($i = 1; $i < count($debuglogs); ++$i) {
-                $temp = explode("-", $debuglogs[$i]);
-                $debugresult[$i-1] = array("{$temp[0]}-{$temp[1]}-{$temp[2]}", "{$temp[5]}", "{$temp[6]}");
+                if ($debuglogs[$i] != "--------------------"){
+                    $temp = explode("-", $debuglogs[$i]);
+                    array_push($debugresult, array("{$temp[0]}-{$temp[1]}-{$temp[2]}", "{$temp[5]}", "{$temp[6]}"));
+                }
             }
 
-            for ($i = 2; $i < count($cronlogs); ++$i) {
-                $temp = explode("-", $cronlogs[$i]);
-                $cronresult[$i-2] = array("{$temp[0]}-{$temp[1]}-{$temp[2]}", "{$temp[5]}", "{$temp[6]}");
+            for ($i = 1; $i < count($cronlogs); ++$i) {
+                if ($debuglogs[$i] != "--------------------"){
+                    $temp = explode("-", $cronlogs[$i]);
+                    array_push($cronresult, array("{$temp[0]}-{$temp[1]}-{$temp[2]}", "{$temp[5]}", "{$temp[6]}"));
+                }
             }
 
             $result = array($inforesult, $debugresult, $cronresult);
