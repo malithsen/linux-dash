@@ -257,7 +257,6 @@ dashboard.getBaLogs = function () {
 		destroy_dataTable("balogs_debug_dashboard");
 		destroy_dataTable("balogs_cron_dashboard");
 
-        console.log(data);
         $("#balogs_info_dashboard").dataTable({
             aaData: data[0],
             aoColumns: [
@@ -650,6 +649,21 @@ dashboard.redis = function () {
     });
 }
 
+dashboard.baStatus = function () {
+    moduleData("ba_status", function (data) {
+
+        if (data.length == 0)
+        {
+            $('#bestat-on').addClass('hide');
+            $('#bestat-off').removeClass('hide');
+        }
+        else
+        {
+            $('#bestat-on').removeClass('hide');
+            $('#bestat-off').addClass('hide');
+        }
+    });
+}
 /**
  * Refreshes all widgets. Does not call itself recursively.
  */
@@ -687,4 +701,5 @@ dashboard.fnMap = {
     swap: dashboard.getSwaps,
     arp: dashboard.getArp,
     redis: dashboard.redis,
+    baStatus: dashboard.baStatus,
 };

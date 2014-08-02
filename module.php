@@ -29,7 +29,8 @@
         'where',
         'arp',
         'redis_status',
-        'balogs'
+        'balogs',
+        'ba_status'
     );
 
 
