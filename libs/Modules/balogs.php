@@ -39,8 +39,8 @@
                 }
             }
 
-            for ($i = 1; $i < count($cronlogs); ++$i) {
-                if ($debuglogs[$i] != "--------------------"){
+            for ($i = 2; $i < count($cronlogs); ++$i) {
+                if ($cronlogs[$i] != "--------------------"){
                     $temp = explode("-", $cronlogs[$i]);
                     array_push($cronresult, array("{$temp[0]}-{$temp[1]}-{$temp[2]}", "{$temp[5]}", "{$temp[6]}"));
                 }
